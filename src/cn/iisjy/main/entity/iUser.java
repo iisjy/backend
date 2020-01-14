@@ -3,7 +3,7 @@ package cn.iisjy.main.entity;
 import java.sql.Timestamp;
 
 public class iUser {
-	public int			user_id;					//用户身份识别码
+	public int			user_id;					//用户唯一标识
 	public String		user_name;					//用户昵称
 	public String		user_pswd_hash;				//密码哈希值（SHA-512）
 	public String		user_pswd_salt;				//用户的盐值
@@ -16,6 +16,7 @@ public class iUser {
 	public Timestamp	user_birthdate;				//用户出生日期
 	public Timestamp	user_regtime;				//注册时间
 	public String		user_regIPaddr;				//注册IP地址
+	public String		user_regPort;				//注册IP地址
 	public String		user_login_token_qq;
 	public String		user_login_token_wechat;
 	
