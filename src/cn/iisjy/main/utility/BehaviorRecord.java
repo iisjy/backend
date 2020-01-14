@@ -17,13 +17,19 @@ public class BehaviorRecord {
 	}
 	public static void publishRecord() {	//保存6个月
 		//用户唯一标识
-		//信息表示
+		//信息唯一标识（blog_id）
 		//发布时间
 		//IP地址、端口
 		//信息摘要
 		//设备（web:浏览器UA；app:设备识别码）
 	}
 	public static void replyRecord() {		//保存6个月
-		
+		//用户唯一标识
+		//信息唯一标识（reply_article）
+		//楼层（reply_floor）
+		//发布时间
+		//IP地址、端口
+		//信息摘要
+		//设备（web:浏览器UA；app:设备识别码）
 	}
 }
