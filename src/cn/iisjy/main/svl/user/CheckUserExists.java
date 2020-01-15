@@ -27,7 +27,21 @@ public class CheckUserExists extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		String account =  request.getParameter("account");
+		String salt="";
+		if(account != null && !"".equals(account)) {
+			salt=
+			
+			if(!"NULL".equals(salt)) {
+				response.getWriter().append(salt);
+				return;
+			}
+		}
+		// return 404 code
+		response.getWriter().append("404");
+		response.setStatus(404);
 	}
 
 	/**
@@ -35,6 +49,9 @@ public class CheckUserExists extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().append("This api is NOT for post methord!");
+		response.setStatus(403);
 	}
 }

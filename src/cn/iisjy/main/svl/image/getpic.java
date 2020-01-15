@@ -33,10 +33,12 @@ public class getpic extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
 		String imghash = request.getParameter("hash");
 		String imgInfo = "";
 		if (imghash != null && !imghash.equals("")) {
-			
 			try {
 				imgInfo = ImageDao.getImage(imghash);
 			} catch (ClassNotFoundException e) {
@@ -46,7 +48,7 @@ public class getpic extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if (imgInfo.equals("NULL")) {
+			if (!imgInfo.equals("NULL")) {
 				response.getWriter().append(imgInfo);
 				return;
 			}
@@ -64,7 +66,8 @@ public class getpic extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("This api is NOT for post methord!").append(request.getContextPath());
+		response.getWriter().append("This api is NOT for post methord!");
+		response.setStatus(403);
 	}
 
 }
