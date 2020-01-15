@@ -11,7 +11,8 @@ public class iUser {
 	public String		user_login_email	="NULL";	//登陆用的电子邮箱
 	public String		user_real_name		="NULL";	//用户真实姓名
 	public int			user_certificate	=-1;		//用户证件信息
-	public String		user_avatar			="NULL";	//用户头像（哈希）
+	public String		user_avatar_hash	="NULL";	//用户头像（哈希）
+	public iImage		user_avatar;					//用户头像（实体）
 	public String 		user_sex			="X";		//用户性别
 	public Timestamp	user_birthdate;					//用户出生日期
 //	public Timestamp	user_regtime;					//注册时间

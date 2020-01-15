@@ -46,13 +46,14 @@ public class UserDao {
 			u.user_login_email = rs.getString("user_login_email");
 			u.user_real_name = rs.getString("user_real_name");
 			u.user_certificate = rs.getInt("user_certificate");
-			u.user_avatar = rs.getString("user_avatar");
+			u.user_avatar_hash = rs.getString("user_avatar");
 			u.user_sex = rs.getString("user_sex");
 			u.user_birthdate = rs.getTimestamp("user_birthdate");
 		}
 		if (u.user_id == -1) {
 			return "NULL";
 		} else {
+			u.user_avatar=ImageDao.getImageEntity(u.user_avatar_hash);
 			return JSONObject.toJSONString(u);
 		}
 	}
