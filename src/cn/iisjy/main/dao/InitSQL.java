@@ -2,10 +2,11 @@ package cn.iisjy.main.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class InitSQL {
 	
-	public static Connection getConnection() throws Exception {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Connection c = null;
 		Class.forName("org.postgresql.Driver"); // 加载JDBC驱动
 //		String user = "postgres";

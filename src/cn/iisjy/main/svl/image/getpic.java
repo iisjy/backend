@@ -1,6 +1,7 @@
 package cn.iisjy.main.svl.image;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,9 +34,19 @@ public class getpic extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String imghash = request.getParameter("hash");
+		String imgInfo = "";
 		if (imghash != null && !imghash.equals("")) {
-			String imgInfo = ImageDao.getImage(imghash);
-			if (imgInfo != null && !imgInfo.equals("")) {
+			
+			try {
+				imgInfo = ImageDao.getImage(imghash);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (imgInfo.equals("NULL")) {
 				response.getWriter().append(imgInfo);
 				return;
 			}
