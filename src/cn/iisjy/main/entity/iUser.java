@@ -19,5 +19,4 @@ public class iUser {
 	public String		user_regPort;				//注册IP地址
 	public String		user_login_token_qq;
 	public String		user_login_token_wechat;
-	
 }
