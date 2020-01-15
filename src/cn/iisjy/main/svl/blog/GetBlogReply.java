@@ -1,4 +1,4 @@
-package cn.iisjy.main.svl.user;
+package cn.iisjy.main.svl.blog;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Register
+ * Servlet implementation class GetBlogReply
  */
-@WebServlet("/Register")
-public class Register extends HttpServlet {
+@WebServlet("/GetBlogReply")
+public class GetBlogReply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Register() {
+    public GetBlogReply() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,10 +27,7 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().append("This api is NOT for GET methord!");
-		response.setStatus(403);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -38,7 +35,10 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().append("This api is NOT for post methord!");
+		response.setStatus(403);
 	}
 
 }
