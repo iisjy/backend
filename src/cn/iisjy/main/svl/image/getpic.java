@@ -15,13 +15,13 @@ import cn.iisjy.main.dao.ImageDao;
  * Servlet implementation class getpic
  */
 @WebServlet("/getpic")
-public class GetPicInfo extends HttpServlet {
+public class getpic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GetPicInfo() {
+	public getpic() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

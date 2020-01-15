@@ -35,7 +35,9 @@ public class GetBlogDetail extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().append("This api is NOT for post methord!");
+		response.setStatus(403);
 	}
-
 }
