@@ -1,11 +1,15 @@
 package cn.iisjy.main.svl.user;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cn.iisjy.main.dao.UserDao;
 
 /**
  * Servlet implementation class Login
@@ -40,7 +44,23 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+		String account =  request.getParameter("account");
+		String token =  request.getParameter("token");
+		String user = "NULL";
+		if(account != null && !"".equals(account) && token !=null && !"".equals(token)) {
+			try {
+				user=UserDao.login(account, token);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if("NULL".equals(user)) {
+				response.getWriter().append(user);
+				return;
+			}
+		}
+		// return 404 code
+		response.getWriter().append("404");
+		response.setStatus(404);
 	}
-
 }

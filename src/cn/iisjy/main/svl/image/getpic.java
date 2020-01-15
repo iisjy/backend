@@ -41,13 +41,11 @@ public class getpic extends HttpServlet {
 		if (imghash != null && !imghash.equals("")) {
 			try {
 				imgInfo = ImageDao.getImage(imghash);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
+			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 			if (!imgInfo.equals("NULL")) {
 				response.getWriter().append(imgInfo);
 				return;
@@ -56,7 +54,7 @@ public class getpic extends HttpServlet {
 		// return 404 code
 		response.getWriter().append("404");
 		response.setStatus(404);
-		
+
 	}
 
 	/**

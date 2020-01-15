@@ -25,6 +25,7 @@ public class ImageDao {
 			img.img_title	=rs.getString(3);
 			img.img_alt		=rs.getString(4);
 		}
+		c.close();
 		if("NULL".equals(img.img_type)) {
 			return "NULL";
 		}
