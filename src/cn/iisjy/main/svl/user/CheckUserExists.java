@@ -12,23 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import cn.iisjy.main.dao.UserDao;
 
 /**
- * Servlet implementation class CheckUserName
+ * Servlet implementation class CheckUserExists
  */
-@WebServlet("/CheckUserName")
+@WebServlet("/CheckUserExists")
 public class CheckUserExists extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CheckUserExists() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public CheckUserExists() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
