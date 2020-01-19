@@ -42,7 +42,12 @@ public class GetBlogList extends HttpServlet {
 			String page_s = request.getParameter("page");
 			if(page_s != null && "".equals(page_s)) {
 				int page = Integer.parseInt(page_s);
-				blogs=BlogDao.getBlogListJson(size, page);
+				try {
+					blogs=BlogDao.getBlogListJson(size, page);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}else {
 				try {
 					blogs=BlogDao.getBlogListJson(size);
