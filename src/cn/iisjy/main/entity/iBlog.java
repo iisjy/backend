@@ -5,9 +5,11 @@ import java.sql.Timestamp;
 public class iBlog {
 	public int			article_id;
 	public String		article_title;
-	public int			article_author;
+	public int			article_author_id;
+	public iUser		article_author;
 	public String		article_sumary;
-	public String		article_coverimg;
+	public String		article_coverimg_hash;
+	public iImage		article_coverimg;
 	public String		article_type;
 	public String		article_content;
 	public String		article_status;
