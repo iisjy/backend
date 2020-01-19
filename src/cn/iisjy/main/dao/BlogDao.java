@@ -17,10 +17,9 @@ public class BlogDao {
 		
 		Connection c = InitSQL.getConnection();
 		PreparedStatement pStmt;
-		String sql = "select * from blogs order by xxx DESC;";
+		String sql = "select * from blogs order by article_id DESC;";
 		pStmt = c.prepareStatement(sql);
 		ResultSet rs = pStmt.executeQuery();
-		int i = 0;
 		while (rs.next()) {
 			b=new iBlog();
 			b.article_id = rs.getInt("");
@@ -43,7 +42,7 @@ public class BlogDao {
 		iBlog[] blog_entities = new iBlog[size];
 		Connection c = InitSQL.getConnection();
 		PreparedStatement pStmt;
-		String sql = "select * from blogs order by xxx DESC limit ?;";
+		String sql = "select * from blogs order by article_id DESC limit ?;";
 		pStmt = c.prepareStatement(sql);
 		pStmt.setInt(1, size);
 		ResultSet rs = pStmt.executeQuery();
