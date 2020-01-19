@@ -1,11 +1,15 @@
 package cn.iisjy.main.svl.blog;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cn.iisjy.main.dao.BlogDao;
 
 /**
  * Servlet implementation class GetBlogList
@@ -35,9 +39,27 @@ public class GetBlogList extends HttpServlet {
 		String size_s = request.getParameter("size");
 		if (size_s != null && "".equals(size_s)) {
 			int size = Integer.parseInt(size_s);
-
+			String page_s = request.getParameter("page");
+			if(page_s != null && "".equals(page_s)) {
+				int page = Integer.parseInt(page_s);
+				blogs=BlogDao.getBlogListJson(size, page);
+			}else {
+				try {
+					blogs=BlogDao.getBlogListJson(size);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}else {
+			try {
+				blogs=BlogDao.getBlogListJson();
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-
+		response.getWriter().append(blogs);
 	}
 
 	/**
